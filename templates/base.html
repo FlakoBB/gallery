@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}My Gallery{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'styles/globals.css' %}">
+</head>
+<body>
+  {% block header%}
+    <header>
+      <h1>My Gallery</h1>
+      {% if request.user.is_authenticated %}
+        <a href="{% url 'logout' %}">Cerrar Sesión</a>
+      {% else %}
+        <a href="{% url 'login' %}">Iniciar Sesión</a>
+      {% endif %}
+    </header>
+  {% endblock %}
+  {% block content %}
+    <main>
+      Contenido principal
+    </main>
+  {% endblock %}
+  {% block footer %}
+    <footer>
+      <p>Created By <strong>FlakoBB</strong></p>
+    </footer>
+  {% endblock %}
+</body>
+</html>

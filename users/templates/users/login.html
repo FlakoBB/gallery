@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Acceder {% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+  <main>
+    <h3>Iniciar Sesión</h3>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Entrar">
+    </form>
+  </main>
+{% endblock %}
