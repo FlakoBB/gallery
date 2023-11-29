@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ album.name }}{% endblock %}
+
+{% block content %}
+  <main>
+    <h2>{{ album.name }}</h2>
+    <ul>
+      {% for picture in pictures %}
+        <li>
+          <h4>{{picture.name}}</h4>
+          <img src="{{ picture.image.url }}" style="object-fit: cover; width: 150px; height: 150px;">
+        </li>
+      {% endfor %}
+    </ul>
+  </main>
+{% endblock %}
