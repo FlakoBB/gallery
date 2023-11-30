@@ -7,7 +7,9 @@
   {% block content %}
   <main>
     <h2>Todas las Imagenes</h2>
-    <a href="{% url 'picture_registration' %}">Agregar</a>
+    {% if request.user.is_flk %}
+      <a href="{% url 'picture_registration' %}">Agregar</a>
+    {% endif %}
     <a href="{% url 'albums' %}">Ver albumes</a>
     <ul>
       {% for picture in pictures %}

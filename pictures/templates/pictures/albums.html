@@ -5,6 +5,9 @@
 {% block content %}
   <main>
     <h2>Álbumes</h2>
+    {% if request.user.is_flk %}
+      <a href="{% url 'create_album' %}">Crear Album</a>
+    {% endif %}
     <ul>
       {% for album in albums %}
         <li>
