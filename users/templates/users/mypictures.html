@@ -6,16 +6,20 @@
 
   {% block content %}
   <main>
-    <h2>Todas las Imagenes</h2>
-    {% if request.user.is_flk %}
-      <a href="{% url 'picture_registration' %}">Agregar</a>
-    {% endif %}
-    <a href="{% url 'albums' %}">Ver albumes</a>
+    <div class="header_section">
+      <h2>Todas las Imagenes</h2>
+      {% if request.user.is_flk %}
+        <a class="btn" href="{% url 'picture_registration' %}">Agregar</a>
+      {% endif %}
+      <a class="btn" href="{% url 'albums' %}">Ver albumes</a>
+    </div>
     <ul>
       {% for picture in pictures %}
         <li>
-          <h4>{{ picture.title }}</h4>
-          <img src="{{ picture.image.url }}" style="object-fit: cover; width: 150px; height: 150px;">
+          <div class="card">
+            <h4>{{ picture.title }}</h4>
+            <img src="{{ picture.image.url }}">
+          </div>
         </li>
       {% endfor %}
     </ul>

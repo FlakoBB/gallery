@@ -4,17 +4,20 @@
 
 {% block content %}
   <main>
-    <h2>Álbumes</h2>
-    {% if request.user.is_flk %}
-      <a href="{% url 'create_album' %}">Crear Album</a>
-    {% endif %}
+    <div class="header_section">
+      <h2>Álbumes</h2>
+      {% if request.user.is_flk %}
+        <a class="btn" href="{% url 'create_album' %}">Crear Album</a>
+      {% endif %}
+    </div>
     <ul>
       {% for album in albums %}
         <li>
           <a href="{% url 'album_pictures' album_name=album.album.name %}">
-            <h4>{{ album.album.name }}</h4>
-            <img src="{{ album.last_picture.image.url }}"
-              style="object-fit: cover; width: 200px; height: 200px; border-radius: 1rem;">
+            <div class="card">
+              <h4>{{ album.album.name }}</h4>
+              <img src="{{ album.last_picture.image.url }}">
+            </div>
           </a>
         </li>
       {% endfor %}
